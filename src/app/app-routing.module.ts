@@ -11,7 +11,7 @@ import { BullionMetalsComponent } from './bullion-metals/bullion-metals.componen
 import { CataloguesComponent } from './catalogues/catalogues.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/collections', pathMatch: 'full' },
+  { path: '', redirectTo: 'collections', pathMatch: 'full' },
   { path: 'collections', component: CollectionsComponent },
   { path: 'coins', component: CoinsComponent },
   { path: 'dates', component: DatesComponent },
@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'sheets', component: SheetsComponent },
   { path: 'albums', component: AlbumsComponent },
   { path: 'bullionMetals', component: BullionMetalsComponent },
-  { path: 'catalogues', component: CataloguesComponent }
+  { path: 'catalogues', component: CataloguesComponent },
+  { path: '**', redirectTo: 'collections' }
 ];
 
 @NgModule({

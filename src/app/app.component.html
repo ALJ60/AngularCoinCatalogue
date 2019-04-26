@@ -4,15 +4,8 @@
   </span>
 </mat-toolbar>
 
-<nav mat-tab-nav-bar>
-  <a mat-tab-link
-    *ngFor="let link of tabLinks"
-    [routerLink]="link.link"
-    routerLinkActive
-    #rla="routerLinkActive"
-    [active]="rla.isActive">
-    {{ link.label }}
-  </a>
-</nav>
+<mat-tab-group (selectedIndexChange)="tabChanged($event)" [selectedIndex]="selectedTabIndex">
+  <mat-tab *ngFor="let link of tabLinks" [label]="link.label"></mat-tab>
+</mat-tab-group>
 
 <router-outlet></router-outlet>

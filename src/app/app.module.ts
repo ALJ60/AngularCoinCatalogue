@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTabsModule } from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatTableModule } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
 import { DatesComponent } from './dates/dates.component';
@@ -29,9 +30,11 @@ import { CataloguesComponent } from './catalogues/catalogues.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

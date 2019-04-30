@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { CollectionService } from '../collection.service';
 import { Collection } from '../collection';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-collections',
@@ -14,13 +16,16 @@ export class CollectionsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'collection'];
 
-  constructor(private collectionService: CollectionService) { }
+  constructor(
+    private collectionService: CollectionService,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit() {
     this.collectionService.getCollections()
       .subscribe(
         data => this.collections = data,
-        error => console.log('Error', error.error)
+        error => this.dialog.open(ErrorDialogComponent, {data: error.error})
       );
     }
 

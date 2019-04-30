@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTabsModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatTableModule, MatDialogModule, MatButtonModule } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
 import { DatesComponent } from './dates/dates.component';
@@ -14,6 +14,7 @@ import { SheetsComponent } from './sheets/sheets.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { BullionMetalsComponent } from './bullion-metals/bullion-metals.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CataloguesComponent } from './catalogues/catalogues.component';
     SheetsComponent,
     AlbumsComponent,
     BullionMetalsComponent,
-    CataloguesComponent
+    CataloguesComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,12 @@ import { CataloguesComponent } from './catalogues/catalogues.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ErrorDialogComponent]
 })
 export class AppModule { }

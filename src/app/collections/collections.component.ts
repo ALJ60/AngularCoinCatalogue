@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 
 import { CollectionService } from '../collection.service';
 import { Collection } from '../collection';
-import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
 
 @Component({
   selector: 'app-collections',
@@ -25,7 +25,7 @@ export class CollectionsComponent implements OnInit {
     this.collectionService.getCollections()
       .subscribe(
         data => this.collections = data,
-        error => this.dialog.open(ErrorDialogComponent, {data: error.error})
+        error => this.dialog.open(MessageDialogComponent, {data: {heading: 'Error', message: error.error}})
       );
     }
 

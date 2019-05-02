@@ -14,7 +14,7 @@ import { SheetsComponent } from './sheets/sheets.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { BullionMetalsComponent } from './bullion-metals/bullion-metals.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
-import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     AlbumsComponent,
     BullionMetalsComponent,
     CataloguesComponent,
-    ErrorDialogComponent
+    MessageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +42,6 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[ErrorDialogComponent]
+  entryComponents: [MessageDialogComponent]
 })
 export class AppModule { }

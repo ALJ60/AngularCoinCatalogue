@@ -11,7 +11,8 @@ import {
   MatTableModule,
   MatDialogModule,
   MatButtonModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatIconModule
 } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
@@ -46,7 +47,8 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

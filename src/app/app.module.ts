@@ -5,7 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTabsModule, MatTableModule, MatDialogModule, MatButtonModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatTabsModule,
+  MatTableModule,
+  MatDialogModule,
+  MatButtonModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
 import { DatesComponent } from './dates/dates.component';
@@ -38,7 +45,8 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     MatTabsModule,
     MatTableModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

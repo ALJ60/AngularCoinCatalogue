@@ -16,17 +16,27 @@ export class CollectionsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'collection'];
 
+  loading = true;
+
   constructor(
     private collectionService: CollectionService,
     public dialog: MatDialog
     ) { }
 
   ngOnInit() {
+    this.loadCollections();
+  }
+
+  loadCollections() {
+    this.loading = true;
     this.collectionService.getCollections()
       .subscribe(
-        data => this.collections = data,
+        data => {
+          this.collections = data;
+          this.loading = false;
+        },
         error => this.dialog.open(MessageDialogComponent, {data: {heading: 'Error', message: error.error}})
       );
-    }
+  }
 
 }

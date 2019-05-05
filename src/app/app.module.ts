@@ -23,6 +23,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { BullionMetalsComponent } from './bullion-metals/bullion-metals.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     AlbumsComponent,
     BullionMetalsComponent,
     CataloguesComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,9 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [MessageDialogComponent]
+  entryComponents: [
+    MessageDialogComponent,
+    ConfirmDialogComponent
+  ]
 })
 export class AppModule { }

@@ -9,16 +9,16 @@
     </ng-container>
     <ng-container matColumnDef="buttons">
       <th mat-header-cell *matHeaderCellDef>
-        <button mat-mini-fab (click)="newCollection()">
+        <button mat-icon-button color="primary" (click)="newCollection()">
           <mat-icon>add</mat-icon>
         </button>
       </th>
       <td mat-cell *matCellDef="let collection">
-        <button mat-mini-fab color="primary" (click)="editCollection(collection.id)">
+        <button mat-icon-button color="primary" (click)="editCollection(collection.id)">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;
-        <button mat-mini-fab color="warn" (click)="deleteCollection(collection.id)">
+        <button mat-icon-button color="warn" (click)="deleteCollection(collection)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

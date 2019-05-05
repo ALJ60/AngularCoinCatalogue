@@ -12,9 +12,14 @@ export class CollectionService {
 
   private collectionBaseUrl = `${Config.apiBaseUrl}/collection`;
 
+  constructor(private httpClient: HttpClient) { }
+
   getCollections(): Observable<Collection[]> {
     return this.httpClient.get<Collection[]>(`${this.collectionBaseUrl}/readAll.php`);
   }
 
-  constructor(private httpClient: HttpClient) { }
+  deleteCollection(id: number): Observable<void> {
+    return this.httpClient.post<void>(`${this.collectionBaseUrl}/delete.php`, id);
+  }
+
 }

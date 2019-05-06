@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CollectionsComponent } from './collections/collections.component';
+import { NewCollectionComponent } from './new-collection/new-collection.component';
+import { EditCollectionComponent } from './edit-collection/edit-collection.component';
 import { CoinsComponent } from './coins/coins.component';
 import { DatesComponent } from './dates/dates.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -13,6 +15,8 @@ import { CataloguesComponent } from './catalogues/catalogues.component';
 const routes: Routes = [
   { path: '', redirectTo: 'collections', pathMatch: 'full' },
   { path: 'collections', component: CollectionsComponent },
+  { path: 'collection/new', component: NewCollectionComponent },
+  { path: 'collection/edit/:id', component: EditCollectionComponent },
   { path: 'coins', component: CoinsComponent },
   { path: 'dates', component: DatesComponent },
   { path: 'categories', component: CategoriesComponent },

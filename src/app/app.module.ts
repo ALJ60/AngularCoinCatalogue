@@ -24,6 +24,8 @@ import { BullionMetalsComponent } from './bullion-metals/bullion-metals.componen
 import { CataloguesComponent } from './catalogues/catalogues.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NewCollectionComponent } from './new-collection/new-collection.component';
+import { EditCollectionComponent } from './edit-collection/edit-collection.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     BullionMetalsComponent,
     CataloguesComponent,
     MessageDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    NewCollectionComponent,
+    EditCollectionComponent
   ],
   imports: [
     BrowserModule,

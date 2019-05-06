@@ -1,22 +1,18 @@
 <table mat-table [dataSource]="collections" class="mat-elevation-z8" *ngIf="!loading">
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>Id</th>
-      <td mat-cell *matCellDef="let collection">{{collection.id}}</td>
-    </ng-container>
     <ng-container matColumnDef="collection">
       <th mat-header-cell *matHeaderCellDef>Collection</th>
       <td mat-cell *matCellDef="let collection">{{collection.collection}}</td>
     </ng-container>
     <ng-container matColumnDef="buttons">
       <th mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="newCollection()">
+        <a mat-icon-button color="primary" routerLink="/collection/new">
           <mat-icon>add</mat-icon>
-        </button>
+        </a>
       </th>
       <td mat-cell *matCellDef="let collection">
-        <button mat-icon-button color="primary" (click)="editCollection(collection.id)">
+        <a mat-icon-button color="primary" routerLink="/collection/edit/{{collection.id}}">
           <mat-icon>edit</mat-icon>
-        </button>
+        </a>
         &nbsp;
         <button mat-icon-button color="warn" (click)="deleteCollection(collection)">
           <mat-icon>delete</mat-icon>

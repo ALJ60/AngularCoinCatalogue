@@ -15,7 +15,7 @@ export class CollectionsComponent implements OnInit {
 
   collections: Collection[];
 
-  displayedColumns: string[] = ['id', 'collection', 'buttons'];
+  displayedColumns: string[] = ['collection', 'buttons'];
 
   loading = true;
 
@@ -42,10 +42,6 @@ export class CollectionsComponent implements OnInit {
     );
   }
 
-  editCollection(id: number) {
-    console.log('Edit', id);
-  }
-
   deleteCollection(collection: Collection) {
     this.dialog.open(ConfirmDialogComponent, {
       data: {
@@ -66,10 +62,6 @@ export class CollectionsComponent implements OnInit {
         }
       }
     );
-  }
-
-  newCollection() {
-    console.log('New');
   }
 
 }

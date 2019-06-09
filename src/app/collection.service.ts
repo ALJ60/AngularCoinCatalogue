@@ -18,6 +18,10 @@ export class CollectionService {
     return this.httpClient.get<Collection[]>(`${this.collectionBaseUrl}/readAll.php`);
   }
 
+  createCollection(collection: Collection): Observable<void> {
+    return this.httpClient.post<void>(`${this.collectionBaseUrl}/insert.php`, collection);
+  }
+
   deleteCollection(id: number): Observable<void> {
     return this.httpClient.post<void>(`${this.collectionBaseUrl}/delete.php`, id);
   }

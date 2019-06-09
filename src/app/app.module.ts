@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,10 @@ import {
   MatDialogModule,
   MatButtonModule,
   MatProgressSpinnerModule,
-  MatIconModule
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule
 } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
@@ -47,6 +51,7 @@ import { EditCollectionComponent } from './edit-collection/edit-collection.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatTabsModule,
@@ -54,7 +59,10 @@ import { EditCollectionComponent } from './edit-collection/edit-collection.compo
     MatDialogModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

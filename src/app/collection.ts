@@ -1,4 +1,5 @@
 export class Collection {
-  id: number;
+  id?: number;
   collection: string;
+  sortOrder?: number;
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
 
 import { CollectionService } from '../collection.service';
+import { MessageService } from '../message.service';
 import { Collection } from '../collection';
-import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-collections',
@@ -21,7 +19,7 @@ export class CollectionsComponent implements OnInit {
 
   constructor(
     private collectionService: CollectionService,
-    public dialog: MatDialog
+    private messageService: MessageService
     ) { }
 
   ngOnInit() {
@@ -36,26 +34,24 @@ export class CollectionsComponent implements OnInit {
         this.loading = false;
       },
       error => {
-        this.dialog.open(MessageDialogComponent, {data: {heading: 'Error', message: error.error}});
+        this.messageService.displayHttpError(error);
         this.loading = false;
       }
     );
   }
 
   deleteCollection(collection: Collection) {
-    this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        heading: 'Are you sure?',
-        message: `Are you sure you want to delete collection '${collection.collection}'?`
-      }
-    }).afterClosed().subscribe(
+    this.messageService.confirm(
+      'Are you sure?',
+      `Are you sure you want to delete collection '${collection.collection}'?`
+      ).subscribe(
       confirm => {
         if (confirm) {
           this.loading = true;
           this.collectionService.deleteCollection(collection.id).subscribe(
             () => this.loadCollections(),
             error => {
-              this.dialog.open(MessageDialogComponent, {data: {heading: 'Error', message: error.error}});
+              this.messageService.displayHttpError(error);
               this.loading = false;
             }
           );

@@ -52,7 +52,12 @@ export class NewCollectionComponent implements OnInit {
 
   loadCollections() {
     this.collectionService.getCollections().subscribe(
-      data => this.collections = data,
+      data => {
+        this.collections = data;
+        if (this.collections.length === 0) {
+          this.collectionForm.get('sortOrder').setValue('0');
+        }
+      },
       error => this.messageService.displayHttpError(error)
     );
   }

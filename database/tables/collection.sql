@@ -10,4 +10,3 @@ ALTER TABLE `collection`
 
 ALTER TABLE `collection`
   MODIFY `CollectionId` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;

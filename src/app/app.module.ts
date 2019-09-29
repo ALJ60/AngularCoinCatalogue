@@ -16,7 +16,8 @@ import {
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
@@ -62,7 +63,8 @@ import { EditCollectionComponent } from './edit-collection/edit-collection.compo
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

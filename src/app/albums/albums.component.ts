@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { AlbumService } from '../album.service';
 import { MessageService } from '../message.service';
@@ -11,7 +13,9 @@ import { Album } from '../album';
 })
 export class AlbumsComponent implements OnInit {
 
-  albums: Album[];
+  dataSource = new MatTableDataSource<Album>();
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   displayedColumns: string[] = ['album', 'collection', 'notes', 'buttons'];
 
@@ -23,6 +27,7 @@ export class AlbumsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
     this.loadAlbums();
   }
 
@@ -30,7 +35,7 @@ export class AlbumsComponent implements OnInit {
     this.loading = true;
     this.albumService.getAlbums().subscribe(
       data => {
-        this.albums = data;
+        this.dataSource.data = data;
         this.loading = false;
       },
       error => {

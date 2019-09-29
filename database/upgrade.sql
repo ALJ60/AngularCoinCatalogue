@@ -10,3 +10,8 @@ ALTER TABLE `collection`
 
 ALTER TABLE `collection`
   MODIFY `CollectionId` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `album` ADD `CollectionId` INT NULL AFTER `Album`;
+
+ALTER TABLE `album`
+  ADD FOREIGN KEY (`CollectionId`) REFERENCES `collection`(`CollectionId`) ON DELETE RESTRICT ON UPDATE RESTRICT;

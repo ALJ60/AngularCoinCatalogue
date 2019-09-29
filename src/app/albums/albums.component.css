@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.loading-container {
+  position: relative;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-column-notes {
+  white-space: pre-wrap;
+}

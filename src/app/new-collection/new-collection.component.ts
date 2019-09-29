@@ -15,14 +15,14 @@ export class NewCollectionComponent implements OnInit {
 
   saving = false;
 
+  collections: Collection[];
+
   collectionForm = this.fb.group({
     collection: ['', Validators.required],
     sortOrder: ['', Validators.required]
   });
 
-  collections: Collection[];
-
-  get collection() {
+  get collectionField() {
     return this.collectionForm.get('collection');
   }
 
@@ -42,12 +42,16 @@ export class NewCollectionComponent implements OnInit {
     this.collectionService.createCollection({
       collection: this.collectionForm.value.collection,
       sortOrder: +this.collectionForm.value.sortOrder}).subscribe(
-      () => this.router.navigate(['/collections']),
+      () => this.returnToList(),
       error => {
         this.messageService.displayHttpError(error);
         this.saving = false;
       }
     );
+  }
+
+  returnToList() {
+    this.router.navigate(['/collections']);
   }
 
   loadCollections() {
@@ -58,7 +62,10 @@ export class NewCollectionComponent implements OnInit {
           this.collectionForm.get('sortOrder').setValue('0');
         }
       },
-      error => this.messageService.displayHttpError(error)
+      error => {
+        this.messageService.displayHttpError(error);
+        this.returnToList();
+      }
     );
   }
 

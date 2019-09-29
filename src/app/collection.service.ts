@@ -14,12 +14,20 @@ export class CollectionService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getCollection(id: number): Observable<Collection> {
+    return this.httpClient.get<Collection>(`${this.collectionBaseUrl}/read.php?id=${id}`);
+  }
+
   getCollections(): Observable<Collection[]> {
     return this.httpClient.get<Collection[]>(`${this.collectionBaseUrl}/readAll.php`);
   }
 
   createCollection(collection: Collection): Observable<void> {
     return this.httpClient.post<void>(`${this.collectionBaseUrl}/insert.php`, collection);
+  }
+
+  updateCollection(collection: Collection): Observable<void> {
+    return this.httpClient.post<void>(`${this.collectionBaseUrl}/update.php`, collection);
   }
 
   deleteCollection(id: number): Observable<void> {

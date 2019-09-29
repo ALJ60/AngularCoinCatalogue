@@ -1,3 +1,19 @@
-<p>
-  edit-collection works!
-</p>
+<form [formGroup]="collectionForm" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field hintLabel="Max 50 characters">
+    <input matInput formControlName="collection" placeholder="Collection" required maxlength="50">
+    <mat-hint align="end">{{collectionField.value?.length || 0}}/50</mat-hint>
+    <mat-error>Collection is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sort order</mat-label>
+    <mat-select formControlName="sortOrder">
+      <mat-option value="-1">Current position</mat-option>
+      <mat-option value="0">At beginning</mat-option>
+      <mat-option *ngFor="let collection of collections" [value]="collection.id">
+        After {{collection.collection}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit" [disabled]="!collectionForm.valid || saving">Save</button>
+  <a routerLink="/collections" mat-button>Cancel</a>
+</form>

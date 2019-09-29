@@ -5,7 +5,7 @@ BEGIN
 
   IF EXISTS(SELECT * FROM collection WHERE Collection = p_Collection) THEN
     SIGNAL SQLSTATE '45000'
-      SET MESSAGE_TEXT = 'Duplication collection';
+      SET MESSAGE_TEXT = 'Duplicate collection';
   END IF;
 
   IF p_SortAfterId = 0 THEN

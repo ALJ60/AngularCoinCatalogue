@@ -1,7 +1,7 @@
 export class Album {
   id?: number;
   album: string;
-  collectionid?: number;
+  collectionId?: number;
   collection?: string;
   notes?: string;
 }

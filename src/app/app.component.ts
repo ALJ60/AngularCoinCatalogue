@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { TabLink } from './tab-link';
 import { Observable } from 'rxjs';
-import { MatTabGroup } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +15,14 @@ export class AppComponent implements OnInit {
 
   // List of tabs for our tab control with the link URLs to route to
   tabLinks: TabLink[] = [
-    { label: 'Collections', link: '/collections' },
-    { label: 'Coins', link: '/coins' },
-    { label: 'Dates', link: '/dates' },
-    { label: 'Categories', link: '/categories' },
-    { label: 'Sheets', link: '/sheets' },
-    { label: 'Albums', link: '/albums' },
-    { label: 'Bullion', link: '/bullionMetals' },
-    { label: 'Catalogues', link: '/catalogues' }
+    { label: 'Collections', link: '/collections', match: '/collection' },
+    { label: 'Coins', link: '/coins', match: '/coin' },
+    { label: 'Dates', link: '/dates', match: '/date' },
+    { label: 'Categories', link: '/categories', match: '/category' },
+    { label: 'Sheets', link: '/sheets', match: '/sheet' },
+    { label: 'Albums', link: '/albums', match: '/album' },
+    { label: 'Bullion', link: '/bullionMetals', match: '/bullionMetal' },
+    { label: 'Catalogues', link: '/catalogues', match: '/catalogue' }
   ];
 
   navEnd: Observable<NavigationEnd>;
@@ -34,9 +33,15 @@ export class AppComponent implements OnInit {
      the tabs don't all fit on the screen. So we have to use MatTabGroup instead with empty tab contents
      and handle the routing ourselves.
      When the selected tab is changed then this method will route to the new URL.
+     However, if someone manually navigates for example to /album/new then our code that runs when the route changes
+     will update the tab index which would then cause this code to run causing it to re-route to /albums.
+     To prevent this from happening then we should only route to the new tab when the index is different to the expected
+     index for the current URL.
   */
   tabChanged(index: number) {
-    this.router.navigateByUrl(this.tabLinks[index].link);
+    if (index !== this.findTabIndex()) {
+      this.router.navigateByUrl(this.tabLinks[index].link);
+    }
   }
 
   constructor(private router: Router) {
@@ -57,7 +62,15 @@ export class AppComponent implements OnInit {
 
   // Method to select the correct tab based on the current route
   setActiveTab() {
-    this.selectedTabIndex = this.tabLinks.findIndex(tab => tab.link === this.router.url);
+    this.selectedTabIndex = this.findTabIndex();
+  }
+
+  findTabIndex(): number {
+    let index: number = this.tabLinks.findIndex(tab => tab.link === this.router.url);
+    if (index === -1) {
+      index = this.tabLinks.findIndex(tab => this.router.url.startsWith(tab.match));
+    }
+    return index;
   }
 
 }

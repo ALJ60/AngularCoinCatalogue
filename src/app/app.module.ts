@@ -31,6 +31,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { NewCollectionComponent } from './new-collection/new-collection.component';
 import { EditCollectionComponent } from './edit-collection/edit-collection.component';
+import { NewAlbumComponent } from './new-album/new-album.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EditCollectionComponent } from './edit-collection/edit-collection.compo
     MessageDialogComponent,
     ConfirmDialogComponent,
     NewCollectionComponent,
-    EditCollectionComponent
+    EditCollectionComponent,
+    NewAlbumComponent
   ],
   imports: [
     BrowserModule,

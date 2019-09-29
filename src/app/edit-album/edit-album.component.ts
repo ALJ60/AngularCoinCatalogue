@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { AlbumService } from '../album.service';
@@ -8,19 +9,21 @@ import { CollectionService  } from '../collection.service';
 import { Collection } from '../collection';
 
 @Component({
-  selector: 'app-new-album',
-  templateUrl: './new-album.component.html',
-  styleUrls: ['./new-album.component.css']
+  selector: 'app-edit-album',
+  templateUrl: './edit-album.component.html',
+  styleUrls: ['./edit-album.component.css']
 })
-export class NewAlbumComponent implements OnInit {
+export class EditAlbumComponent implements OnInit {
 
   saving = false;
+
+  id: number;
 
   collections: Collection[];
 
   albumForm = this.fb.group({
     album: ['', Validators.required],
-    collection: ['0'],
+    collection: [''],
     notes: ['']
   });
 
@@ -30,6 +33,7 @@ export class NewAlbumComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private fb: FormBuilder,
     private albumService: AlbumService,
     private messageService: MessageService,
@@ -37,12 +41,15 @@ export class NewAlbumComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.loadAlbum();
     this.loadCollections();
   }
 
   onSubmit() {
     this.saving = true;
-    this.albumService.createAlbum({
+    this.albumService.updateAlbum({
+      id: this.id,
       album: this.albumForm.value.album,
       collectionId: this.albumForm.value.collection,
       notes: this.albumForm.value.notes}).subscribe(
@@ -56,6 +63,20 @@ export class NewAlbumComponent implements OnInit {
 
   returnToList() {
     this.router.navigate(['/albums']);
+  }
+
+  loadAlbum() {
+    this.albumService.getAlbum(this.id).subscribe(
+      data => {
+        this.albumField.setValue(data.album);
+        this.albumForm.get('collection').setValue(data.collectionId === null ? '0' : data.collectionId);
+        this.albumForm.get('notes').setValue(data.notes);
+      },
+      error => {
+        this.messageService.displayHttpError(error);
+        this.returnToList();
+      }
+    );
   }
 
   loadCollections() {

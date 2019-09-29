@@ -10,6 +10,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SheetsComponent } from './sheets/sheets.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { NewAlbumComponent } from './new-album/new-album.component';
+import { EditAlbumComponent  } from './edit-album/edit-album.component';
 import { BullionMetalsComponent } from './bullion-metals/bullion-metals.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'sheets', component: SheetsComponent },
   { path: 'albums', component: AlbumsComponent },
   { path: 'album/new', component: NewAlbumComponent },
+  { path: 'album/edit/:id', component: EditAlbumComponent },
   { path: 'bullionMetals', component: BullionMetalsComponent },
   { path: 'catalogues', component: CataloguesComponent },
   { path: '**', redirectTo: 'collections' }

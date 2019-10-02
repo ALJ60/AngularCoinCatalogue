@@ -15,3 +15,9 @@ ALTER TABLE `album` ADD `CollectionId` INT NULL AFTER `Album`;
 
 ALTER TABLE `album`
   ADD FOREIGN KEY (`CollectionId`) REFERENCES `collection`(`CollectionId`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `sheet` ADD `CollectionId` INT NULL AFTER `AlbumId`;
+
+ALTER TABLE `sheet`
+  ADD CONSTRAINT `Sheet_ibfk_2` FOREIGN KEY (`CollectionId`) REFERENCES `collection`(`CollectionId`)
+  ON DELETE RESTRICT ON UPDATE RESTRICT;

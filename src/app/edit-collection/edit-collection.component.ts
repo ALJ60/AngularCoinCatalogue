@@ -47,7 +47,7 @@ export class EditCollectionComponent implements OnInit {
     this.collectionService.updateCollection({
       id: this.id,
       collection: this.collectionForm.value.collection,
-      sortOrder: +this.collectionForm.value.sortOrder}).subscribe(
+      sortOrder: this.collectionForm.value.sortOrder}).subscribe(
       () => this.returnToList(),
       error => {
         this.messageService.displayHttpError(error);

@@ -1,7 +1,7 @@
 export class Sheet {
   id?: number;
   sheet: string;
-  row?: number;
+  rows?: number;
   columns?: number;
   albumId?: number;
   album?: string;

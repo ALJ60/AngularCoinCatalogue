@@ -2,6 +2,7 @@
   <mat-form-field hintLabel="Max 20 characters">
     <input matInput formControlName="album" placeholder="Album" required maxlength="20">
     <mat-hint align="end">{{albumField.value?.length || 0}}/20</mat-hint>
+    <mat-error>Album is required</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Collection</mat-label>

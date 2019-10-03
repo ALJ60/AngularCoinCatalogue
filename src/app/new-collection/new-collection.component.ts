@@ -41,7 +41,7 @@ export class NewCollectionComponent implements OnInit {
     this.saving = true;
     this.collectionService.createCollection({
       collection: this.collectionForm.value.collection,
-      sortOrder: +this.collectionForm.value.sortOrder}).subscribe(
+      sortOrder: this.collectionForm.value.sortOrder}).subscribe(
       () => this.returnToList(),
       error => {
         this.messageService.displayHttpError(error);

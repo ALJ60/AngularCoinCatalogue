@@ -33,7 +33,7 @@ export class AlbumsComponent implements OnInit {
 
   loadAlbums() {
     this.loading = true;
-    this.albumService.getAlbums().subscribe(
+    this.albumService.getAlbums(true).subscribe(
       data => {
         this.dataSource.data = data;
         this.loading = false;

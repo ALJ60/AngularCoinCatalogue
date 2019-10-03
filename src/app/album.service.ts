@@ -18,8 +18,8 @@ export class AlbumService {
     return this.httpClient.get<Album>(`${this.albumBaseUrl}/read.php?id=${id}`);
   }
 
-  getAlbums(): Observable<Album[]> {
-    return this.httpClient.get<Album[]>(`${this.albumBaseUrl}/readAll.php`);
+  getAlbums(details: boolean): Observable<Album[]> {
+    return this.httpClient.get<Album[]>(`${this.albumBaseUrl}/readAll.php?details=${details}`);
   }
 
   createAlbum(album: Album): Observable<void> {
@@ -33,5 +33,5 @@ export class AlbumService {
   deleteAlbum(id: number): Observable<void> {
     return this.httpClient.post<void>(`${this.albumBaseUrl}/delete.php`, id);
   }
-  
+
 }

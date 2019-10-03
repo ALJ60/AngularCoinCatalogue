@@ -4,6 +4,8 @@ require "../init.php";
 
 $db = openDb();
 
+$details = $_REQUEST["details"];
+
 $data = [];
 
 $result = $db->query("CALL Album_SelectAll;");
@@ -16,8 +18,11 @@ if (!$result) {
 while ($row = $result->fetch_object()) {
   $entry["id"] = $row->AlbumId;
   $entry["album"] = $row->Album;
-  $entry["collection"] = $row->Collection;
-  $entry["notes"] = $row->Notes;
+  if ($details = "true") {
+    $entry["collection"] = $row->Collection;
+    $entry["notes"] = $row->Notes;
+  }
+
   $data[] = $entry;
 }
 

@@ -4,6 +4,8 @@ import { BullionMetalService } from '../bullion-metal.service';
 import { MessageService } from '../message.service';
 import { BullionMetal } from '../bullion-metal';
 
+import Config from '../../assets/app-config.json';
+
 @Component({
   selector: 'app-bullion-metals',
   templateUrl: './bullion-metals.component.html',
@@ -24,6 +26,10 @@ export class BullionMetalsComponent implements OnInit {
 
   ngOnInit() {
     this.loadBullionMetals();
+  }
+
+  get currency(): string {
+    return Config.currency;
   }
 
   loadBullionMetals() {

@@ -21,3 +21,7 @@ ALTER TABLE `sheet` ADD `CollectionId` INT NULL AFTER `AlbumId`;
 ALTER TABLE `sheet`
   ADD CONSTRAINT `Sheet_ibfk_2` FOREIGN KEY (`CollectionId`) REFERENCES `collection`(`CollectionId`)
   ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE bullion DROP FOREIGN KEY Bullion_ibfk_1;
+
+ALTER TABLE `bullion` DROP `CurrencyId`;

@@ -23,8 +23,8 @@ export class NewSheetComponent implements OnInit {
 
   sheetForm = this.fb.group({
     sheet: ['', Validators.required],
-    rows: ['', [Validators.required, Validators.min(1), Validators.max(9)]],
-    columns: ['', [Validators.required, Validators.min(1), Validators.max(9)]],
+    rows: ['', [Validators.required, Validators.pattern('[1-9]')]],
+    columns: ['', [Validators.required, Validators.pattern('[1-9]')]],
     album: ['0'],
     collection: ['0']
   });
@@ -39,9 +39,9 @@ export class NewSheetComponent implements OnInit {
 
   get rowsError() {
     if (this.rowsField.hasError('required')) {
-      return 'Rows is required and must be a valid number between 1 and 9';
-    } else if (this.rowsField.hasError('min') || this.rowsField.hasError('max')) {
-      return 'Rows must be between 1 and 9';
+      return 'Rows is required and must be an integer between 1 and 9';
+    } else if (this.rowsField.hasError('pattern')) {
+      return 'Rows must an integer between 1 and 9';
     } else {
       return '';
     }
@@ -53,9 +53,9 @@ export class NewSheetComponent implements OnInit {
 
   get columnsError() {
     if (this.columnsField.hasError('required')) {
-      return 'Columns is required and must be a valid number between 1 and 9';
-    } else if (this.columnsField.hasError('min') || this.columnsField.hasError('max')) {
-      return 'Columns must be between 1 and 9';
+      return 'Columns is required and must be an integer between 1 and 9';
+    } else if (this.columnsField.hasError('pattern')) {
+      return 'Columns must be an integer between 1 and 9';
     } else {
       return '';
     }

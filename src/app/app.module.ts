@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { registerLocaleData  } from '@angular/common';
+import localeGb from '@angular/common/locales/en-GB';
+registerLocaleData(localeGb);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -74,7 +78,7 @@ import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
     MatSelectModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'en-GB'}],
   bootstrap: [AppComponent],
   entryComponents: [
     MessageDialogComponent,

@@ -34,6 +34,7 @@ import { EditCollectionComponent } from './edit-collection/edit-collection.compo
 import { NewAlbumComponent } from './new-album/new-album.component';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { NewSheetComponent } from './new-sheet/new-sheet.component';
+import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NewSheetComponent } from './new-sheet/new-sheet.component';
     EditCollectionComponent,
     NewAlbumComponent,
     EditAlbumComponent,
-    NewSheetComponent
+    NewSheetComponent,
+    EditSheetComponent
   ],
   imports: [
     BrowserModule,

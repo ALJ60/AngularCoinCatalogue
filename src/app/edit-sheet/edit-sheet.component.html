@@ -1,0 +1,37 @@
+<form [formGroup]="sheetForm" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field hintLabel="Max 10 characters">
+    <input matInput formControlName="sheet" placeholder="Sheet" required maxlength="10">
+    <mat-hint align="end">{{sheetField.value?.length || 0}}/10</mat-hint>
+    <mat-error>Sheet is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="rows" placeholder="Rows" type="number" required min="1" max="9">
+    <mat-hint>1-9</mat-hint>
+    <mat-error>{{rowsError}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="columns" placeholder="Columns" type="number" required min="1" max="9">
+    <mat-hint>1-9</mat-hint>
+    <mat-error>{{columnsError}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Album</mat-label>
+    <mat-select formControlName="album">
+      <mat-option value="0">(none)</mat-option>
+      <mat-option *ngFor="let album of albums" [value]="album.id">
+        {{album.album}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Collection</mat-label>
+    <mat-select formControlName="collection">
+      <mat-option value="0">(inherit from album)</mat-option>
+      <mat-option *ngFor="let collection of collections" [value]="collection.id">
+        {{collection.collection}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit" [disabled]="!sheetForm.valid || saving">Save</button>
+  <a routerLink="/sheets" mat-button>Cancel</a>
+</form>

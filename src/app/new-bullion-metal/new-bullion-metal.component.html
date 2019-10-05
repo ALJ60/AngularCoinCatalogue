@@ -1,4 +1,7 @@
 <form [formGroup]="bullionMetalForm" (ngSubmit)="onSubmit()" class="form">
+  <section class="mat-typography">
+    <h2>New Bullion Metal</h2>
+  </section>
   <mat-form-field hintLabel="Max 20 characters">
     <input matInput formControlName="metal" placeholder="Metal" required maxlength="20">
     <mat-hint align="end">{{metalField.value?.length || 0}}/20</mat-hint>

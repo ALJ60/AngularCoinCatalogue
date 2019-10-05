@@ -1,4 +1,7 @@
 <form [formGroup]="albumForm" (ngSubmit)="onSubmit()" class="form">
+  <section class="mat-typography">
+    <h2>Edit Album</h2>
+  </section>
   <mat-form-field hintLabel="Max 20 characters">
     <input matInput formControlName="album" placeholder="Album" required maxlength="20">
     <mat-hint align="end">{{albumField.value?.length || 0}}/20</mat-hint>

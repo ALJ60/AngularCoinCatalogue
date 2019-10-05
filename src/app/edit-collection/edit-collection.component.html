@@ -1,4 +1,7 @@
 <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()" class="form">
+  <section class="mat-typography">
+    <h2>Edit Collection</h2>
+  </section>
   <mat-form-field hintLabel="Max 50 characters">
     <input matInput formControlName="collection" placeholder="Collection" required maxlength="50">
     <mat-hint align="end">{{collectionField.value?.length || 0}}/50</mat-hint>

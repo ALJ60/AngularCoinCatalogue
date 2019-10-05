@@ -1,4 +1,7 @@
 <form [formGroup]="sheetForm" (ngSubmit)="onSubmit()" class="form">
+  <section class="mat-typography">
+    <h2>Edit Sheet</h2>
+  </section>
   <mat-form-field hintLabel="Max 10 characters">
     <input matInput formControlName="sheet" placeholder="Sheet" required maxlength="10">
     <mat-hint align="end">{{sheetField.value?.length || 0}}/10</mat-hint>

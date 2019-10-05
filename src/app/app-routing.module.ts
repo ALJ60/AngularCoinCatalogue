@@ -14,6 +14,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { NewAlbumComponent } from './new-album/new-album.component';
 import { EditAlbumComponent  } from './edit-album/edit-album.component';
 import { BullionMetalsComponent } from './bullion-metals/bullion-metals.component';
+import { NewBullionMetalComponent } from './new-bullion-metal/new-bullion-metal.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'album/new', component: NewAlbumComponent },
   { path: 'album/edit/:id', component: EditAlbumComponent },
   { path: 'bullionMetals', component: BullionMetalsComponent },
+  { path: 'bullionMetal/new', component: NewBullionMetalComponent },
   { path: 'catalogues', component: CataloguesComponent },
   { path: '**', redirectTo: 'collections' }
 ];

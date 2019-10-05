@@ -1,0 +1,16 @@
+<form [formGroup]="bullionMetalForm" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field hintLabel="Max 20 characters">
+    <input matInput formControlName="metal" placeholder="Metal" required maxlength="20">
+    <mat-hint align="end">{{metalField.value?.length || 0}}/20</mat-hint>
+    <mat-error>Metal is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <span matPrefix>{{currencySymbol}}&nbsp;</span>
+    <input matInput formControlName="price" placeholder="Price/oz" type="number" required min="0.01" max="9999.99"
+           step="0.01">
+    <mat-hint>Max {{currencySymbol}}9999.99</mat-hint>
+    <mat-error>{{priceError}}</mat-error>
+  </mat-form-field>
+  <button mat-button type="submit" [disabled]="!bullionMetalForm.valid || saving">Save</button>
+  <a routerLink="/bullionMetals" mat-button>Cancel</a>
+</form>

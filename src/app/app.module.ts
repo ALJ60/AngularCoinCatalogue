@@ -39,6 +39,7 @@ import { NewAlbumComponent } from './new-album/new-album.component';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { NewSheetComponent } from './new-sheet/new-sheet.component';
 import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
+import { NewBullionMetalComponent } from './new-bullion-metal/new-bullion-metal.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
     NewAlbumComponent,
     EditAlbumComponent,
     NewSheetComponent,
-    EditSheetComponent
+    EditSheetComponent,
+    NewBullionMetalComponent
   ],
   imports: [
     BrowserModule,

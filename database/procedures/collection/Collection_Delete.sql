@@ -10,6 +10,14 @@ BEGIN
     SIGNAL SQLSTATE '45000'
       SET MESSAGE_TEXT = 'Cannot delete - used for albums';
   END IF;
+  
+  IF EXISTS(SELECT *
+              FROM sheet
+              WHERE CollectionId = p_CollectionId
+            ) THEN
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Cannot delete - used for sheets';
+  END IF;
 
   DELETE FROM collection
     WHERE CollectionId = p_CollectionId;

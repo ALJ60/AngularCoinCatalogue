@@ -25,3 +25,7 @@ ALTER TABLE `sheet`
 ALTER TABLE bullion DROP FOREIGN KEY Bullion_ibfk_1;
 
 ALTER TABLE `bullion` DROP `CurrencyId`;
+
+ALTER TABLE catalogue DROP FOREIGN KEY Catalogue_ibfk_1;
+
+ALTER TABLE `catalogue` DROP `CurrencyId`

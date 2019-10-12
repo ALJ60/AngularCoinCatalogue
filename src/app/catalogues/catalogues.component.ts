@@ -48,7 +48,7 @@ export class CataloguesComponent implements OnInit {
   deleteCatalogueEdition(catalogueEdition: CatalogueEdition) {
     this.messageService.confirm(
       'Are you sure?',
-      `Are you sure you want to delete catalogue '${catalogueEdition.fullName()}'?`
+      `Are you sure you want to delete catalogue '${CatalogueEdition.fullName(catalogueEdition)}'?`
       ).subscribe(
       confirm => {
         if (confirm) {

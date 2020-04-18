@@ -18,6 +18,11 @@ export class CatalogueEditionService {
     return this.httpClient.get<CatalogueEdition[]>(`${this.catalogueEditionBaseUrl}/readAll.php`);
   }
 
+  createCatalogeEdition(catalogueEdition: CatalogueEdition): Observable<void> {
+    return this.httpClient.post<void>(`${this.catalogueEditionBaseUrl}/insert.php`, catalogueEdition);
+  }
+
+
   deleteCatalogueEdition(id: number): Observable<void> {
     return this.httpClient.post<void>(`${this.catalogueEditionBaseUrl}/delete.php`, id);
   }

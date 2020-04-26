@@ -6,7 +6,6 @@ import { CatalogueService } from '../catalogue.service';
 import { CatalogueEditionService } from '../catalogue-edition.service';
 import { MessageService } from '../message.service';
 import { Catalogue } from '../catalogue';
-import { CatalogueEdition } from '../catalogue-edition';
 
 @Component({
   selector: 'app-new-catalogue',
@@ -64,7 +63,7 @@ export class NewCatalogueComponent implements OnInit {
 
   onSubmit() {
     this.saving = true;
-    this.catalogueEditionService.createCatalogeEdition({
+    this.catalogueEditionService.createCatalogueEdition({
       catalogue: {
         id: this.catalogueForm.value.catalogue === '-1' ? 0 : this.catalogueForm.value.catalogue,
         catalogue: this.catalogueForm.value.catalogueName

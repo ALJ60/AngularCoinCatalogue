@@ -15,6 +15,10 @@ export class CatalogueService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getCatalogue(id: number): Observable<Catalogue> {
+    return this.httpClient.get<Catalogue>(`${this.catalogueBaseUrl}/read.php?id=${id}`);
+  }
+
   getCatalogues(): Observable<Catalogue[]> {
     return this.httpClient.get<Catalogue[]>(`${this.catalogueBaseUrl}/readAll.php`);
   }

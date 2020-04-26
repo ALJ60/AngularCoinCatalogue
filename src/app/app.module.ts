@@ -21,7 +21,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { CollectionsComponent } from './collections/collections.component';
 import { CoinsComponent } from './coins/coins.component';
@@ -42,6 +43,7 @@ import { EditSheetComponent } from './edit-sheet/edit-sheet.component';
 import { NewBullionMetalComponent } from './new-bullion-metal/new-bullion-metal.component';
 import { EditBullionMetalComponent } from './edit-bullion-metal/edit-bullion-metal.component';
 import { NewCatalogueComponent } from './new-catalogue/new-catalogue.component';
+import { EditCatalogueComponent } from './edit-catalogue/edit-catalogue.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { NewCatalogueComponent } from './new-catalogue/new-catalogue.component';
     EditSheetComponent,
     NewBullionMetalComponent,
     EditBullionMetalComponent,
-    NewCatalogueComponent
+    NewCatalogueComponent,
+    EditCatalogueComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { NewCatalogueComponent } from './new-catalogue/new-catalogue.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'en-GB'}],
   bootstrap: [AppComponent],

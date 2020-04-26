@@ -1,0 +1,27 @@
+<form [formGroup]="catalogueForm" (ngSubmit)="onSubmit()" class="form">
+  <section class="mat-typography">
+    <h2>Edit Catalogue</h2>
+  </section>
+  <mat-form-field>
+    <mat-label>Catalogue</mat-label>
+    <mat-select formControlName="catalogue">
+      <mat-option value="-1">*New*</mat-option>
+      <mat-option *ngFor="let catalogue of catalogues" [value]="catalogue.id">
+        {{catalogue.catalogue}}
+      </mat-option>
+    </mat-select>
+    <mat-error>Catalogue is required</mat-error>
+  </mat-form-field>
+  <mat-checkbox formControlName="editCatalogueName" *ngIf="catalogueField.value > 0">Rename Catalogue</mat-checkbox>
+  <mat-form-field hintLabel="Max 80 characters" *ngIf="catalogueField.value == -1 || editCatalogueNameField.value">
+    <input matInput formControlName="catalogueName" placeholder="Catalogue Name" required maxlength="80">
+    <mat-hint align="end">{{catalogueNameField.value?.length || 0}}/80</mat-hint>
+    <mat-error>Catalogue Name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field hintLabel="Max 20 characters">
+    <input matInput formControlName="edition" placeholder="Edition" maxlength="20">
+    <mat-hint align="end">{{editionField.value?.length || 0}}/20</mat-hint>
+  </mat-form-field>
+  <button mat-button type="submit" [disabled]="!catalogueForm.valid || saving">Save</button>
+  <a routerLink="/catalogues" mat-button>Cancel</a>
+</form>

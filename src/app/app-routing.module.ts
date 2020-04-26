@@ -18,6 +18,7 @@ import { NewBullionMetalComponent } from './new-bullion-metal/new-bullion-metal.
 import { EditBullionMetalComponent } from './edit-bullion-metal/edit-bullion-metal.component';
 import { CataloguesComponent } from './catalogues/catalogues.component';
 import { NewCatalogueComponent  } from './new-catalogue/new-catalogue.component';
+import { EditCatalogueComponent } from './edit-catalogue/edit-catalogue.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'collections', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'bullionMetal/edit/:id', component: EditBullionMetalComponent },
   { path: 'catalogues', component: CataloguesComponent },
   { path: 'catalogue/new', component: NewCatalogueComponent },
+  { path: 'catalogue/edit/:id', component: EditCatalogueComponent },
   { path: '**', redirectTo: 'collections' }
 ];
 

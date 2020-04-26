@@ -14,14 +14,21 @@ export class CatalogueEditionService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getCatalogueEdition(id: number): Observable<CatalogueEdition> {
+    return this.httpClient.get<CatalogueEdition>(`${this.catalogueEditionBaseUrl}/read.php?id=${id}`);
+  }
+
   getCatalogueEditions(): Observable<CatalogueEdition[]> {
     return this.httpClient.get<CatalogueEdition[]>(`${this.catalogueEditionBaseUrl}/readAll.php`);
   }
 
-  createCatalogeEdition(catalogueEdition: CatalogueEdition): Observable<void> {
+  createCatalogueEdition(catalogueEdition: CatalogueEdition): Observable<void> {
     return this.httpClient.post<void>(`${this.catalogueEditionBaseUrl}/insert.php`, catalogueEdition);
   }
 
+  updateCatalogueEdition(catalogueEdition: CatalogueEdition): Observable<void> {
+    return this.httpClient.post<void>(`${this.catalogueEditionBaseUrl}/update.php`, catalogueEdition);
+  }
 
   deleteCatalogueEdition(id: number): Observable<void> {
     return this.httpClient.post<void>(`${this.catalogueEditionBaseUrl}/delete.php`, id);
